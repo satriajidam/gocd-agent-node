@@ -1,6 +1,9 @@
-FROM alpine:3.8
+FROM alpine:3.6
 
 ENV VERSION=v8.12.0 NPM_VERSION=6 YARN_VERSION=v1.10.1
+
+# use uk alpine respository
+RUN echo -e "https://uk.alpinelinux.org/alpine/v3.6/main\nhttps://uk.alpinelinux.org/alpine/v3.6/community" > /etc/apk/repositories
 
 # setup node, npm, & yarn
 RUN apk add --no-cache curl make gcc g++ python linux-headers binutils-gold gnupg libstdc++ && \
